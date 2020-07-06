@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Cute invader</title>
+    <style type="text/css">
+        div {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+
+        canvas {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var statemachine = 0;
+        var alien = {};
+        var tick = 0;
+        const dtick = 0.1;
+
+        function animateloop() {
+            dc.clearRect(0, 0, width, height);
+            var s = 5;
+
+            switch (statemachine) {
+                case 0: // start the show
+                    alien = {
+                        x: width / 2,
+                        y: height / 2,
+                        scale: 0.1,
+                        maxscale: 10.0,
+                        angle: 0.0,
+                        targetangle: 0.5,
+                        dangle: 0.015,
+                    };
+                    statemachine = 1;
+                    break;
+                case 1: // increase size
+                    alien.scale *= 1.01;
+                    if (alien.scale > alien.maxscale) {
+                        statemachine = 2;
+                    }
+                    break;
+                case 2: // twist a little
+                    alien.angle += alien.dangle;
+                    if (alien.angle > alien.targetangle) {
+                        alien.targetangle = - 0.5,
+                            statemachine = 3;
+                    }
+                    break;
+                case 3: // twist a little
+                    alien.angle -= alien.dangle;
+                    if (alien.angle < alien.targetangle) {
+                        alien.targetangle = 0.5,
+                            statemachine = 4;
+                    }
+                    break;
+                case 4: // twist a little
+                    alien.angle += alien.dangle;
+                    if (alien.angle > alien.targetangle) {
+                        alien.targetangle = - 0.5,
+                            statemachine = 5;
+                    }
+                    break;
+                case 5: // twist a little
+                    alien.angle -= alien.dangle;
+                    if (alien.angle < alien.targetangle) {
+                        alien.targetangle = 0.5,
+                            statemachine = 6;
+                        alien.maxscale = 100;
+
+                    }
+                    break;
+                case 6: // increase size and move out of view
+                    alien.scale *= 1.01;
+                    alien.angle -= alien.dangle;
+                    alien.x += alien.scale * Math.cos(alien.angle);
+                    alien.y += alien.scale * Math.sin(alien.angle);
+                    if (alien.scale > alien.maxscale) {
+                        statemachine = 0;
+                    }
+                    break;
+
+                default:
+                //                console.log("statemachine=" + statemachine);
+            }
+
+            tick += dtick;
+            var angle = tick / 2;
+            var size = tick / 10;
+
+            dc.save();
+            var s = 5;
+            dc.translate(alien.x, alien.y); // center of window
+            var scale = alien.size + Math.sin(alien.angle);
+            dc.scale(alien.scale, alien.scale);
+            dc.rotate(alien.angle);
+            dc.fillStyle = "RED";
+            dc.fillRect(-4 * s, -6 * s, 8 * s, 2 * s);
+            dc.fillRect(-5 * s, -5 * s, 10 * s, 9 * s);
+            var xx = s * 3 * Math.sin(tick) - 5 * s;
+            dc.fillRect(xx, 2 * s, 4 * s, 5 * s);
+            dc.fillRect(xx + 6 * s, 2 * s, s * 4, s * 5);
+            dc.fillStyle = "WHITE";
+            dc.fillRect(-3 * s, -4 * s, 2 * s, 4 * s);
+            dc.fillRect(1 * s, -4 * s, 2 * s, 4 * s);
+            dc.fillStyle = "BLACK";
+            dc.fillRect(-3 * s, -2 * s, s, 2 * s);
+            dc.fillRect(1 * s, -2 * s, s, 2 * s);
+            dc.restore();
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

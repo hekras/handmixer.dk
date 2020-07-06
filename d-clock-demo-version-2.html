@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Clock-V2</title>
+    <style type="text/css">
+        canvas {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        2
+        function animateloop() {
+            dc.clearRect(0, 0, width, height);
+
+            var dato = new Date();
+            var radius = (width < height) ? width / 2 : height / 2;
+
+            var seconds = (dato.getSeconds() / 60 + dato.getMilliseconds() / 1000 / 60) * 2 * Math.PI;
+            var minutes = (dato.getMinutes() / 60 + dato.getSeconds() / 60 / 60) * 2 * Math.PI;
+            var hours = ((dato.getHours() % 12) / 12 + dato.getMinutes() / 60 / 12) * 2 * Math.PI;
+
+
+            for (var j = 0; j < 60; j++) {
+                var a = j / 60 * 2 * Math.PI;
+                var r = ((j % 5) == 0) ? 0.02 : 0.005;
+                dc.fillStyle = (a > seconds) ? "orange" : "red";
+                dc.beginPath();
+                dc.arc(width / 2 + 0.9 * radius * Math.sin(a), height / 2 - 0.9 * radius * Math.cos(a), radius * r, 0, 6.28);
+                dc.fill();
+            }
+
+            dc.strokeStyle = "yellow";
+            dc.lineWidth = 10;
+            dc.beginPath();
+            dc.moveTo(width / 2, height / 2);
+            dc.lineTo(width / 2 + 0.85 * radius * Math.sin(minutes), height / 2 - 0.85 * radius * Math.cos(minutes));
+            dc.moveTo(width / 2, height / 2);
+            dc.lineTo(width / 2 + 0.5 * radius * Math.sin(hours), height / 2 - 0.5 * radius * Math.cos(hours));
+            dc.stroke();
+            dc.fillStyle = "yellow";
+            dc.beginPath();
+            dc.arc(width / 2, height / 2, radius * 0.05, 0, 6.28);
+            dc.fill();
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

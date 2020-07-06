@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dotted polar Sinus</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+
+        /*
+        * This program is free software: you can redistribute it and/or modify
+        * it under the terms of the GNU General Public License as published by
+        * the Free Software Foundation, either version 3 of the License, or
+        * (at your option) any later version.
+        */
+
+        var statemachine = 0;
+        var points = [];
+        var colors = [];
+        var factor = 0;
+        var tick = Math.floor(Math.random() * 256);
+        var dtick = 1;
+        var dtickduration = -1;
+        var tock = Math.floor(Math.random() * 256);
+        var dtock = 1;
+        var dtockduration = -1;
+        var tack = Math.floor(Math.random() * 256);
+        var dtack = 1;
+        var dtackduration = -1;
+        var tyck = Math.floor(Math.random() * 256);
+        var dtyck = 1;
+        var dtyckduration = -1;
+
+        function animateloop() {
+            dc.clearRect(0, 0, width, height);
+            switch (statemachine) {
+                case 0: // start the show
+                    var radius = (width < height) ? width * 0.4 : height * 0.4;
+                    for (var i = 0; i < 1024; i++) {
+                        var angle = i * 2 * Math.PI / 1024;
+                        points[i] = {
+                            x: Math.cos(angle),
+                            y: Math.sin(angle),
+                        };
+                    }
+                    factor = 2;//Math.floor(20 * Math.random());
+
+
+                    var r1, r2, dr, rr, g1, g2, dg, rg, b1, b2, db, rb;
+                    r1 = Math.floor(Math.random() * 256);
+                    rr = 0;
+                    g1 = Math.floor(Math.random() * 256);
+                    gr = 0;
+                    b1 = Math.floor(Math.random() * 256);
+                    br = 0;
+
+                    var i = 0;
+                    while (i < 1024) {
+                        if (rr == 0) {
+                            r2 = Math.floor(Math.random() * 256);
+                            rr = 5 + Math.floor(Math.random() * 11);
+                            dr = (r2 - r1) / rr;
+                        }
+                        if (gr == 0) {
+                            g2 = Math.floor(Math.random() * 256);
+                            gr = 5 + Math.floor(Math.random() * 11);
+                            dg = (g2 - g1) / gr;
+                        }
+                        if (br == 0) {
+                            b2 = Math.floor(Math.random() * 256);
+                            br = 5 + Math.floor(Math.random() * 11);
+                            db = (b2 - b1) / br;
+                        }
+                        colors[i] = "rgb(" + Math.floor(r1) + "," + Math.floor(g1) + "," + Math.floor(b1) + ")";
+                        r1 += dr;
+                        g1 += dg;
+                        b1 += db;
+                        rr--;
+                        gr--;
+                        br--;
+                        i++;
+                    }
+
+                    statemachine = 1;
+                    break;
+
+            }
+
+            tock += dtick;
+            tick += dtick;
+            tack += dtack;
+            tyck += dtyck;
+            if (dtickduration-- < 0) {
+                //dtick = (Math.random() < 0.5) ? -1 : 1;
+                dtick = Math.floor((0.5 - Math.random()) * 10);
+                dtickduration = Math.floor(Math.random() * 300);
+            }
+            if (dtackduration-- < 0) {
+                dtack = Math.floor((0.5 - Math.random()) * 10);
+                //dtack = (Math.random() < 0.5) ? -1 : 1;
+                dtackduration = Math.floor(Math.random() * 300);
+            }
+            if (dtockduration-- < 0) {
+                dtock = Math.floor((0.5 - Math.random()) * 10);
+                //dtack = (Math.random() < 0.5) ? -1 : 1;
+                dtockduration = Math.floor(Math.random() * 300);
+            }
+            if (dtyckduration-- < 0) {
+                dtyck = Math.floor((0.5 - Math.random()) * 10);
+                //dtack = (Math.random() < 0.5) ? -1 : 1;
+                dtyckduration = Math.floor(Math.random() * 300);
+            }
+            while (tock < 0) {
+                tock += 1024;
+            }
+            while (tick < 0) {
+                tick += 1024;
+            }
+            while (tack < 0) {
+                tack += 1024;
+            }
+            while (tyck < 0) {
+                tyck += 1024;
+            }
+
+            //            tick %= 64;
+
+            var j = 2;
+            var k = 2;
+            dc.lineWidth = 2;
+            var radius = (width < height) ? width / 2.2 : height / 2.2;
+            var centerx = radius * 1.05;
+            var centery = radius * 1.05;
+            for (var i = 0; i < 1024; i++) {
+                dc.strokeStyle = colors[(i + tyck) % 1024];
+                dc.beginPath()
+                dc.moveTo(centerx + radius * points[(i + tack) % 1024].x * points[(k * i) % 1024].y, centery - radius * points[(i + tick) % 1024].y * points[(factor * i) % 1024].y);
+                dc.lineTo(centerx + radius * points[(i + tick) % 1024].x * points[(j * i) % 1024].y, centery - radius * points[(i + tack + tock) % 1024].y * points[(factor * i) % 1024].y);
+                dc.stroke();
+            }
+
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

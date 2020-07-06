@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Henryk's Invader Editor</title>
+    <link rel="stylesheet" href="/css/w3css/w3.css">
+
+    <style>
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body onkeydown="canvas_key_down(event)">
+    <div id='nav'>
+        <div id='button-editor' onclick="click_editor()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 10px; width: 140px; height: 60px; font-size: 30px; position: absolute;">
+            <div class="center">ED</div>
+        </div>
+        <div id='button-dbase' onclick="click_dbase()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1765px; top: 10px; width: 140px; height: 60px; font-size: 30px; position: absolute;">
+            <div class="center">DB</div>
+        </div>
+        <div id='button-editor' onclick="click_obj()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 75px; width: 140px; height: 60px; font-size: 30px; position: absolute;">
+            <div class="center">OBJ</div>
+        </div>
+        <div id='button-dbase' onclick="click_dbase()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1765px; top: 75px; width: 140px; height: 60px; font-size: 30px; position: absolute;">
+            <div class="center">GAME</div>
+        </div>
+    </div>
+
+    <div id='panel-obj'>
+        <div id='sprites'>
+        </div>
+        <canvas id='obj-canvas' style="position: absolute;left: 10px;top: 10px; background-color: gray;"
+            onclick="click_obj_canvas()" width="1600" height="1000"></canvas>
+    </div>
+
+    <div id='panel-editor'>
+        <div style=" background: rgb(204, 229, 255); left: 1620px; top: 200px; width: 280px; height: 300px; color:
+        rgb(0, 64, 133); font-size: 12px; position: absolute;">
+            <b>Keys:</b><br>
+            <b>1</b>: moveTo<br>
+            <b>2</b>: lineTo<br>
+            <b>3</b>: toggle grid<br>
+            <b>6</b>: toggle fill & stroke<br>
+            <b>7</b>: Export JS to clipboard<br>
+            <b>8</b>: Export SVG to clipboard<br>
+            <b>9</b>: Export JSON to clipboard<br>
+            <b>0</b>: Clear<br>
+            <b>Arrows</b>: Panorate<br>
+            <b>backspace</b>:back
+        </div>
+        <div id='sequence'
+            style="background: rgb(204, 229, 255); left: 1620px; top: 510px; width: 280px; height: 500px; color: rgb(0, 64, 133); font-size: 10px; position: absolute;">
+            <b>Steps:</b>
+            <textarea id='export' readonly
+                style="position: absolute; left: 0;top: 15px;width: 280px;height: 480px;"></textarea>
+        </div>
+        <div
+            style="background: rgb(204, 229, 255); left: 1620px; top: 140px; width: 280px; height: 60px; color: rgb(0, 64, 133); font-size: 20px; position: absolute;">
+            <div id='mouse-pos' class="center">0,0</div>
+        </div>
+        <canvas id='editor-canvas' style="position: absolute;left: 10px;top: 10px; background-color: black;"
+            width="1600" height="1000" onmousemove="canvas_mouse_move(event)"></canvas>
+    </div>
+
+    <div id='panel-dbase' style="visibility: hidden;">
+        <div id='click_save_to_dbase_button' onclick="click_save_to_dbase()"
+            class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 140px; width: 280px; height: 60px; font-size: 20px; position: absolute;">
+            <div class="center">Save</div>
+        </div>
+        <div onclick="click_load_from_dbase()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 201px; width: 280px; height: 60px; font-size: 20px; position: absolute;">
+            <div class="center">Load</div>
+        </div>
+        <div onclick="click_delete_from_dbase()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 262px; width: 280px; height: 60px; font-size: 20px; position: absolute;">
+            <div class="center">Delete</div>
+        </div>
+        <div onclick="click_dbase()" class="w3-button w3-white w3-border w3-border-blue"
+            style="left: 1620px; top: 323px; width: 280px; height: 60px; font-size: 20px; position: absolute;">
+            <div class="center">Refresh</div>
+        </div>
+        <div style=" background: rgb(204, 229, 255); left: 1620px; top: 750px; width: 280px; height: 300px; color:
+        rgb(0, 64, 133); font-size: 12px; position: absolute;">
+            <b>Pages:</b><br>
+            <b>Save:</b> to save in a new slot<br>
+            <b>Load:</b> load one or more files<br>
+            <b>Refresh:</b> update view<br>
+        </div>
+        <div id='panel-dbase-files'>
+        </div>
+    </div>
+    <script src="/js/d-invader-game-editor.js"></script>
+</body>
+
+</html>

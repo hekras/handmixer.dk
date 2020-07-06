@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<title>Henryk's JS-demos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/css/w3css/w3.css">
+</head>
+
+<body>
+    <div class="w3-container">
+        <h1>Henryk's JavaScript Demos</h1>
+    </div>
+    <div class="w3-container">
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="https://github.com/hekras/misser" target="_blank" onclick="increment(33)"><i class=" fa
+                        fa-github fa-5x" aria-hidden="true"></i></a>
+                    <div class="w3-container">
+                        <b>All source codes</b><br>
+                        Clicks: <b><span id='cc-33'></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d_artwork_slideshow.html" target="_blank"><img src="images/d_artwork_thumb.png"
+                            style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>My Artwork.</b> Clicks: <span id='cc-27'></span><br>
+                        <i>2020-04-01</i>: Slideshow Added<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-invader-level-editor.html" target="_blank" onclick="increment(29)"><img
+                            src="images/d-inv-level-editor-thumb.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Invader Level Editor.</b> Clicks: <span id='cc-29'></span><br>
+                        <i>2020-05-29</i>: Project stalled<br>
+                        <i>2020-05-02</i>: Project started<br>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-invader-game-editor.html" target="_blank" onclick="increment(26)"><img
+                            src="images/d-invader-game-editor-thumb.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Vector editor for my game.</b> Clicks: <span id='cc-26'></span><br>
+                        <i>2020-03-22</i>: JSON export<br>
+                        <i>2020-03-07</i>: bugfixing<br>
+                        <i>2020-02-29</i>: delete button added<br>
+                        <i>2020-02-13</i>: project started
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-invader-game.html" target="_blank" onclick="increment(25)"><img
+                            src="images/d-invader-game-thumb.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>My next game.</b> Clicks: <span id='cc-25'></span><br>
+                        <i>2020-05-31</i>: Refactoring, and help box<br>
+                        <i>2020-05-29</i>: Optimized particle processing<br>
+                        <i>2020-05-29</i>: 1: toggle weapon, 2: toggle autofire<br>
+                        <i>2020-04-20</i>: Lazers on 1 and shutgun on 2<br>
+                        <i>2020-03-22</i>: any line<br>
+                        <i>2020-03-19</i>: Some collision detection<br>
+                        <i>2020-03-16</i>: movement (W) and shooting<br>
+                        <i>2020-02-08</i>: project started
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-puzzle-game.html" target="_blank" onclick="increment(28)"><img
+                            src="images/d-puzzle-thumb.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Puzzle game.</b> Clicks: <span id='cc-28'></span><br>
+                        <i>2020-04-20</i>: Buttons and F5 safety added<br>
+                        <i>2020-04-19</i>: Project started and completed<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-misserdemo.html" target="_blank" onclick="increment(1)"><img
+                            src="images/misserdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Misser: simple animated kitty</b><br>
+                        Clicks: <b><span id='cc-1'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-invaderdemo.html" target="_blank" onclick="increment(2)"><img
+                            src="images/invaderdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Cute invader</b><br>
+                        Clicks: <b><span id='cc-2'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-heartdemo.html" target="_blank" onclick="increment(3)"><img
+                            src="images/heartdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Heart</b><br>
+                        Modes: <a href="d-spinningdenheart-demo.html" target="_blank" onclick="increment(3)">
+                            <img width="20" height="20" src="images/flags/denmark-flag-heart-3d-medium.png"></a><br>
+                        Clicks: <b><span id='cc-3'></span></b>
+
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-sinustextdemo.html" target="_blank" onclick="increment(4)"><img
+                            src="images/textfundemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Text with a sinus effect</b><br>
+                        Clicks: <b><span id='cc-4'></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-spinningflagdemo.html" target="_blank" onclick="increment(5)"><img
+                            src="images/spinningflagdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5>Flags. Flag images was copied from <a
+                                href="https://www.countryflags.com/">countryflags.com</a>
+                            Clicks: <span id='cc-5'></span></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-konfettiflagdemo.html" target="_blank" onclick="increment(6)"><img
+                            src="images/konfettiflagdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Konfetti of flags</b><br>
+                        Modes: <a href="d-konfetti-den-flagdemo.html" target="_blank" onclick="increment(6)">
+                            <img width="20" height="20" src="images/flags/denmark-flag-button-square-medium.png">
+                        </a>
+                        <a href="d-konfetti-denheart-flagdemo.html" target="_blank" onclick="increment(6)">
+                            <img width="20" height="20" src="images/flags/denmark-flag-heart-3d-medium.png">
+                        </a><br>
+                        Clicks: <b><span id='cc-6'></span></b>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-randomfireworksdemo.html" target="_blank" onclick="increment(7)"><img
+                            src="images/fireworkdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Fireworks</b><br>
+                        Modes: <img width="20" height="20" src="images/fireworkdemothumbnail.png">
+                        </a>
+                        <a href="d-dkfireworksdemo.html" target="_blank" onclick="increment(7)">
+                            <img width="20" height="20" src="images/flags/denmark-flag-button-square-medium.png">
+                        </a>
+                        <a href="d-swfireworksdemo.html" target="_blank" onclick="increment(7)">
+                            <img width="20" height="20" src="images/flags/sweden-flag-button-square-medium.png">
+                        </a>
+                        <a href="d-nofireworksdemo.html" target="_blank" onclick="increment(7)">
+                            <img width="20" height="20" src="images/flags/norway-flag-button-square-medium.png">
+                        </a>
+                        <a href="d-fifireworksdemo.html" target="_blank" onclick="increment(7)">
+                            <img width="20" height="20"
+                                src="images/flags/finland-flag-button-square-medium.png"></a><br>
+                        Clicks: <b><span id='cc-7'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="https://www.youtube.com/watch?v=fh63ohrQq8Q&list=PLA9nsDezS08teOmwe7dCVXMAZZYZtMPVY"
+                        target="_blank" onclick="increment(8)"><img src="images/csdbhumbnail.png"
+                            style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5> Youtube playlist with stuff i made in the 80's on the Commodore 64. Clicks: <span
+                                id='cc-8'></span> (updated 2019-12-27)</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="https://youtu.be/5HPltHIxeZ0" target="_blank" onclick="increment(9)"><img
+                            src="images/amigademothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5>A demo I made on the Amiga in 1990. Clicks: <span id='cc-9'></span></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-sidescrollerdemo.html" target="_blank" onclick="increment(10)"><img
+                            src="images/textscrollerdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Sidescroller</b><br>
+                        Updated: <b>october 2019</b><br>
+                        Clicks: <b><span id='cc-10'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-ai-browser.html" target="_blank" onclick="increment(11)"><img
+                            src="images/invaderhumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Invaders</b><br>
+                        Updated: <b>october 2019</b><br>
+                        Clicks: <b><span id='cc-11'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="/d-soduko-game.html" target="_blank" onclick="increment(12)">
+                        <img src="images/soduko-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Sudoku</b><br>
+                        Updated: <b>2020-01-12</b><br>
+                        Clicks: <b><span id='cc-12'></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="/try2020" target="_blank" onclick="increment(13)"><img src="images/calendar-thumbnail.png"
+                            style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5>For planning (updated 2019-12-27). Clicks: <span id='cc-13'></span></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-polarsinus-demo.html" target="_blank" onclick="increment(14)"><img
+                            src="images/polar-sinus-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Polar Sinus 1</b><br>
+                        Clicks: <b><span id='cc-14'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-clock-demo.html" target="_blank" onclick="increment(15)"><img
+                            src="images/clock-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5>A simple analog clock. Clicks: <span id='cc-15'></span></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-clock-demo-version-2.html" target="_blank" onclick="increment(16)"><img
+                            src="images/clock-v2-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <h5>Analog clock. (Added 2019-12-18) Clicks: <span id='cc-16'></span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-emojis-demo.html" target="_blank" onclick="increment(17)"><img
+                            src="images/emojisdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Most of visible emojis listed</b><br>
+                        Clicks: <b><span id='cc-17'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-polarsinusdot-demo.html" target="_blank" onclick="increment(18)"><img
+                            src="images/polar-sinusdot-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Polar Sinus 2</b><br>
+                        Added: <b>2019-11-07</b><br>
+                        Clicks: <b><span id='cc-21'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-konfetti-misser-demo.html" target="_blank" onclick="increment(19)"><img
+                            src="images/konfetti-misser-demothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Konfetti kitty</b><br>
+                        Added: <b>2019-11-17</b><br>
+                        Clicks: <b><span id='cc-19'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-konfetti-invader-demo.html" target="_blank" onclick="increment(20)"><img
+                            src="images/konfettiinvaderdemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Konfetti cute invaders</b><br>
+                        Added: <b>2019-11-17</b><br>
+                        Clicks: <b><span id='cc-20'></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w3-row-padding w3-margin-top">
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-rotating-sidescroller-demo.html" target="_blank" onclick="increment(21)"><img
+                            src="images/textrotatedemothumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Wheel of scroller</b><br>
+                        Updated: <b>2019-11-22</b><br>
+                        Clicks: <b><span id='cc-21'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-red-fireworks-demo.html" target="_blank" onclick="increment(22)"><img
+                            src="images/red-fireworks-demo-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Lots of red fireworks</b><br>
+                        Updated: <b>2019-12-19</b><br>
+                        Clicks: <b><span id='cc-22'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="d-random-fireworks-demo-2.html" target="_blank" onclick="increment(23)"><img
+                            src="images/Annotation 2019-12-19 223833.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Lots of random fireworks</b><br>
+                        Updated: <b>2019-12-20</b><br>
+                        Clicks: <b><span id='cc-23'></span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-quarter">
+                <div class="w3-card w3-light-gray">
+                    <a href="zen.php" target="_blank" onclick="increment(24)"><img
+                            src="images/zen-calendar-thumbnail.png" style="width:100%"></a>
+                    <div class="w3-container">
+                        <b>Calendar mockup</b><br>
+                        Updated: <b>2019-12-21</b><br>
+                        Clicks: <b><span id='cc-24'></span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function loadAllClicks() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    var result = JSON.parse(this.responseText);
+                    for (var i = 0; i < result.length; i++) {
+                        var el = document.getElementById('cc-' + result[i].id);
+                        if (el != null) {
+                            el.innerText = result[i].clicks;
+                        }
+                    }
+                }
+            };
+            xmlhttp.open("GET", "/controllers/select_all_clicks.php", true);
+            xmlhttp.send();
+        }
+
+        loadAllClicks();
+
+        function increment(id) {
+            xmlhttp = new XMLHttpRequest();
+            var clicks = Number(document.getElementById('cc-' + id).innerText) + 1;
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    var result = JSON.parse(this.responseText);
+                    for (var i = 0; i < result.length; i++) {
+                        var el = document.getElementById('cc-' + result[i].id);
+                        if (el != null) {
+                            el.innerText = result[i].clicks;
+                        }
+                    }
+                }
+            };
+            xmlhttp.open("GET", "/controllers/increment_clicks_by_id.php?id=" + id, true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+
+</html>

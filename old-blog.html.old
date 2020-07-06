@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!--- Basic Page Needs
+        ================================================== -->
+    <meta charset="utf-8">
+    <title>handmixer.dk</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+         ================================================== -->
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/media-queries.css">
+
+    <!-- Script
+        ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- Favicons
+             ================================================== -->
+    <link rel="shortcut icon" href="favicon.png">
+
+
+    <style>
+        #hicanvas {
+            border: solid 1px gray;
+            width: 100%;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header
+        ================================================== -->
+    <header id="top">
+
+        <div class="row">
+
+            <div class="header-content twelve columns">
+
+                <h1 id="logo-text"><a href="blog.php" title="">handmixer.dk</a></h1>
+                <p id="intro">Just share</p>
+
+            </div>
+
+        </div>
+
+        <nav id="nav-wrap">
+
+            <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show Menu</a>
+            <a class="mobile-btn" href="#" title="Hide navigation">Hide Menu</a>
+
+            <div class="row">
+                <ul id="nav" class="nav">
+                    <li class="current"><a href="index.html">Blog</a></li>
+                    <li><a href="jsdemopage.html">JS-Demos</a>
+                    <!--
+                    <li class="has-children"><a href="#">Calendars</a>
+                        <ul>
+                            <li><a href="loginform.php" target="_blank">Calendar A</a></li>
+                            <li><a href="zen.php" target="_blank">Calendar B (mockup)</a></li>
+                        </ul>
+                    </li>
+                    -->
+                    <li><a href="kis-styles.html">CSS Styles</a></li>
+                </ul>
+            </div>
+
+        </nav> <!-- end #nav-wrap -->
+
+    </header> <!-- Header End -->
+
+    <!-- Content
+        ================================================== -->
+    <div id="content-wrap">
+
+        <div class="row">
+            <div id="sidebar" class="one columns">
+            </div>
+            <div id="main" class="ten columns">
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            Christmas incoming
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>October 29, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>
+                            It’s getting colder. The sign that Christmas is coming and with it gathering of the family,
+                            decorations, candles, good food and presents. The supermarket is already selling Christmas
+                            cookies, of course and new products are being prepared for launch so that they will make it
+                            under the tree. I like this time; I really enjoy being with friends and family and I always
+                            look forward to it. I listed some Christmas wishes for my kids to choose between. I always
+                            get a gift for my mother and for my children. Last year we were at my brothers place and had
+                            duck and pork for dinner with 2 kinds of potatoes, for dessert we had rice pudding. We all
+                            contribute with something, so that the work is divided. I make the rice pudding and have
+                            done so for more than 15 years. I start on December 22nd by cooking the rice with milk and
+                            vanilla. I heat it up on the stove, and when it boils, I put it in the oven to finish, this
+                            way it simmers without burning the bottom. The cooked rice needs to chill so I put it
+                            somewhere cold for the night. On the 23rd I peel the almonds and chop them coarsely; I then
+                            whisk the cream until it is just right (I know when) and mix it all carefully with the cold
+                            rice. Now it will sit until Christmas eve, then it will be a perfect balance of vanilla,
+                            cream, rice and almonds smothered with pickled cherries. Sometimes we will do the dancing
+                            and singing around the tree before the dessert. We don’t plan everything in advance except
+                            for who prepares what food. What happens on the evening of the 24rd is something we agree on
+                            as the evening progresses.
+                        </p>
+                        <p>
+                            <div class="entry-content-media">
+                                <div class="post-thumb">
+                                    <img src="images/cold-weather-2012.JPG">
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            Borderlands 2
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>October 23, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>
+                            I have a PlayStation 3, and many years ago I bought Borderlands 2 for it, at the same time
+                            my son bought the same game for his PC. Now I have never been a fan of the PS controller in
+                            fps games. And when playing the new game, sitting next to my son, playing the same game it
+                            quickly got obvious to me the difference in gameplay. Keyboard+mouse is just more intuitive
+                            for fps than a controller. I never got further than the intro missions and it was so
+                            frustrating not being able to aim properly that I newer played Borderlands 2 again. But then
+                            some months ago Borderlands 3 came out and it just looks amazing. After a few days of
+                            evaluating I concluded that I wanted to play a fps again, but it didn’t need to be
+                            Borderlands 3, I could buy Borderland 2 for ½ the prise. So, I bought it again, but this
+                            time for PC and it is great fun. There are plenty of guides, a skill calculator. When I have
+                            played it through with each character, I hope that Borderlands 3 has gotten cheaper and a
+                            lot
+                            of DLC is available.
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            SMK
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>October 11, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>
+                            I have planned a trip to <a href="http://smk.dk">smk.dk</a> for som recharging of my mental
+                            batteries. I don't think I
+                            will do anymore improvements of my flags. I am happy how they turned out. But don't think
+                            that i drew tham myself, now I found them on <a
+                                href="https://www.countryflags.com">Countryflags</a>,
+                            and as of writing it should be okay to use here on may page. So I need a new project, and
+                            thats where smk come in :-)
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            Moved - JavaScript demos
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>september 30, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>
+                            Jeg har besluttet at samle mine javascript demoer på en dedikeret side, så dette kun er blog
+                            og ikke bliver et stort roderi af forskellige emner.
+                        </p>
+                        <p>
+                            Min weekend gik med en dejlig tur til Sverige sammen med rollespiller drengerøvene og deres
+                            børn. Det var hammer hyggeligt og vi var ret heldige med vejret, på den måde at det regnede
+                            når vi var indenfor og var tørvejr når vi skulle ud og gå tur eller køre i bil. Jeg var glad
+                            for at være sammen med så mange mennesker, der var altid nogen at snakke med eller nogle
+                            mindre børn at lege med. Jeg var dog også glad for roen bagefter da jeg var komme hjem til
+                            DK igen.
+                        </p>
+                        <p>
+                            <div class="entry-content-media">
+                                <div class="post-thumb">
+                                    <a href="jsdemopage.html" target="_blank"><img
+                                            src="images/staticdemocanvas.png"></a>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            Art - fuel for the soul
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>september 20, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>Begynder at nyde min frihed igen. Jeg var en tur i <a
+                                href="https://www.louisiana.dk/">Louisiana</a> i dag for at se Laura Greenfields
+                            udstilling og Generation wealth. De var ok, men det der fangede mig mest var <a
+                                href="https://www.bing.com/images/search?q=marsden+hartley&FORM=HDRSC2">Marsden
+                                Hartleys</a> malerier, som både havde sjæl og smukke farver. Hans protrætter har sit
+                            eget udtryk
+                            og specielt ved hans periode i Mexico er der nogle rigtig flotte billeder med stærk
+                            struktur, udtryk i øjnene og flot udskårne ansigter. Også opstillingerne med blomster i vase
+                            var rigtig flotte, og min gymnasielærer, Majbritt, ville sikker blive glad hvis jeg skrev at
+                            specielt den megen brug af rød farve i både portrætter og blomster var med til at utrykke en
+                            stærk seksualitet.</p>
+                    </div>
+
+                </article>
+
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            New beginning
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>september 19, 2019</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>Eksempler på små kode demos som jeg har lavet for mig selv, siden jeg begyndte at
+                            programmere i 1980'erne. Selvom dette fortrisvis er JavaScript har jeg også prøvet at lave
+                            de samme små demoer i Java, C++, Processing og C#. Der var ikke så mange der kunne finde ud
+                            af at lave particles dengang i 80'erne og i dag er det en funktionalitet som er bygget ind i
+                            Direct X,
+                            Det kan være at der en dag kommer et particle modul til Javascript og så bliver det hele
+                            nemmere. En ting som er blevet nemmere siden pionerdagene er matematikken. Ikke at formlerne
+                            har ændret sig. Nej, det jeg mener er at man ikke længere behøver at have tabeller med sinus
+                            og cosinus, samt arbejde med al matematikken i heltal - noget som gjorde det hele meget
+                            sværere at gennemskue og forklare.</p>
+                    </div>
+
+                </article>
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            From oldschool to modern web programming
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>January 7, 2017</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>My programming skills are old-school. I started with assembler on my C128. That gave me a
+                            good foundation to build on. Not only being able to keep overview of a large complex
+                            program, but also debugging techniques and considerations about speed and memory. Through
+                            the years of education and work I also learned Pascal, C, C++, Java and C#. Many more
+                            languages exist today and I have briefly played with some of them. 15 years ago, I build a
+                            web application for capacity management in telecom. I already knew Java so I chose Tomcat as
+                            my webserver. I didn't use any PHP or JavaScript. Only Java and HTML. When Android came, I
+                            jumped on that platform because it was Java. But mid 2016 I started looking into today's
+                            languages and tools for web development; HTML 5.0, CSS, JavaScript and PHP. In this page, I
+                            will collect all the links that has inspired me.</p>
+                    </div>
+
+                </article> <!-- end entry -->
+                <article class="entry">
+                    <header class="entry-header">
+                        <h2 class="entry-title">
+                            <a>My setup</a>
+                        </h2>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>January 7, 2017</li>
+                                <span class="meta-sep">&bull;</span>
+                                <li>Henryk</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>I recently got a new laptop – Yoga 910 with Windows 10, this has to some degree changed the
+                            way I work. I mainly focus on web development and I choose NetBeans. I know NetBeans from my
+                            Java days, but before making the final decision I did look into other options<br>
+                            <b>Notepad++</b>. Very nice and simplified editor with a lot of available plugins for
+                            improved productivity. I really liked the ftp plugin that automatically syncs with your web
+                            site when saving.<br>
+                            <b>MS Visual Studio</b>. Installs a lot of stuff that I didn’t need or ask for.<br>
+                            <b>MS Visual Code</b>. Simple and with an option of a large amount of extensions. I
+                            experienced some performance issues with very slow response from the editior.<br>
+                            <b>WebStorm</b>. Very nice with a lot of features, but not free.<br>
+                            I still want to try Sublime text.</p>
+                    </div>
+
+                </article> <!-- end entry -->
+
+                <article class="entry">
+
+                    <header class="entry-header">
+
+                        <h2 class="entry-title">
+                            <a>Project tools.</a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li>January 7. 2017</li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="entry-content">
+                        <p>So, I took a look at some of the available option for task- and project management. In my
+                            past I have used Excel a lot to keep track on information. Outlook was my database.
+                            Information was shared via Email. This time I started up by using my old habits but after
+                            having adjusted my excel sheet a couple of times I thought “There must be an easier way”. I
+                            googled and found add-ins for excel, access, WordPress, SharePoint and a lot of online
+                            services among those Trello, Evernote and Wunderlist. OneNote also popped up. But I started
+                            by creating a Trello account and it seemed easy to use. I googled some best practices for
+                            project management on Trello and found a blog with a lot of information. I create a card for
+                            each delivery I have. In the description field, I keep all information I want to be able to
+                            view quickly, I use the markdown for making links to files on SharePoint or other web system
+                            that I use. Below the description field I keep a checklist with all the tasks I have to
+                            accomplish to complete the delivery to the costumer and doing all reporting and
+                            documentation. But there was one problem. I work with restricted information and it is not
+                            allowed to exists on cloud based services outside company domain. So I went to OneNote and
+                            have migrated all my key information to my OneNote workbook. I can link my tasks to outlook
+                            with a due date and there is a link back to the workbook form the outlook task. OneNote
+                            support hyperlinks to files on local computers and on shared network. If the workbook on the
+                            company SharePoint I can share it with others as read/write or read-only. Files can be
+                            attached, mails can be send from outlook to a page, you can tag information with custom tags
+                            which can be searched and filtered. I have decided that my OneNote workbook should be my
+                            only database in the future, so all mails containing important information or needs follow
+                            up are put on the relevant project page. And because of the build in OCR everything is
+                            searchable.</p>
+                    </div>
+
+                </article> <!-- end entry -->
+
+
+            </div> <!-- end main -->
+        </div> <!-- end row -->
+
+    </div> <!-- end content-wrap -->
+
+
+    <!-- Footer
+        ================================================== -->
+    <footer>
+
+        <div class="row">
+            <div class="twelve columns info">
+                <h3>About handmixer.dk</h3>
+                <p>This is my 954'th attempt at web design and web development. My plan it to improve the page as I
+                    learn more.</p>
+            </div>
+
+            <p class="copyright">This website is based on the Keep It Simple CSS template from <a title="Styleshout"
+                    href="http://www.styleshout.com/">Styleshout</a>.</p>
+
+        </div> <!-- End row -->
+
+        <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+    </footer> <!-- End Footer-->
+
+
+    <!-- Java Script
+        ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

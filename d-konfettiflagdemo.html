@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Konfetti flags</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var statemachine = 0;
+        var tick = 0;
+        const dtick = 0.1;
+        var star = [];
+        var flag = {};
+
+
+        var imgArray = Array();
+        imgArray[0] = new Image();
+        imgArray[0].src = "./images/flags/denmark-flag-medium.png";
+        imgArray[1] = new Image();
+        imgArray[1].src = "./images/flags/djibouti-flag-medium.png";
+        imgArray[2] = new Image();
+        imgArray[2].src = "./images/flags/dominica-flag-medium.png";
+        imgArray[3] = new Image();
+        imgArray[3].src = "./images/flags/dominican-republic-flag-medium.png";
+        imgArray[4] = new Image();
+        imgArray[4].src = "./images/flags/east-timor-flag-medium.png";
+        imgArray[5] = new Image();
+        imgArray[5].src = "./images/flags/ecuador-flag-medium.png";
+
+        function animateloop() {
+            dc.fillStyle = "rgba(0,0,0,0.05)"
+            dc.fillRect(0, 0, width, height);
+            //    dc.clearRect(0, 0, width, height);
+
+            switch (statemachine) {
+                case 0: // start the show
+                    star = [];
+                    for (var i = 0; i < 30; i++) {
+                        star[i] = {
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            dy: Math.random() * 5,
+                            size: 0.2,
+                            dsize: 1 - 0.01 * Math.random(),
+                            maxscale: 0.1,
+                            targetangle: 0.5,
+                            dangle: Math.random() * 0.03,
+                            mangle: Math.random() * 3.1457,
+                            img: imgArray[Math.floor(Math.random() * imgArray.length)],
+                        };
+                    }
+                    statemachine = 1;
+                    break;
+                case 1: // increase size
+                    flag.scale *= 1.01;
+                    if (flag.scale > flag.maxscale) {
+                        statemachine = 1;
+                    }
+                    break;
+                default:
+                //                console.log("statemachine=" + statemachine);
+            }
+
+            for (var i = 0; i < star.length; i++) {
+                dc.save();
+                dc.translate(star[i].x, star[i].y); // center of window
+                var scale = star[i].size;
+                dc.scale(scale, scale);
+                dc.rotate(star[i].mangle);
+                dc.translate(-star[i].img.width / 2, - star[i].img.height / 2);
+                dc.drawImage(star[i].img, 0, 0);
+                dc.restore();
+                star[i].y += star[i].dy;
+                star[i].mangle += star[i].dangle;
+                star[i].size *= star[i].dsize;
+                if ((star[i].y > height + 80.0) || (star[i].size < 0.005)) {
+                    star[i] = {
+                        x: Math.random() * width,
+                        y: -200,
+                        dy: 1.5 + Math.random() * 8,
+                        size: 0.2,
+                        dsize: 1 - 0.01 * Math.random(),
+                        maxscale: 0.1,
+                        targetangle: 0.5,
+                        dangle: 0.1 * (Math.random() - 0.5),
+                        mangle: Math.random() * 3.1457,
+                        img: imgArray[Math.floor(Math.random() * imgArray.length)],
+                    };
+                }
+            }
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Henryk's Art</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/w3css/w3.css">
+    <style>
+        .rotate90 {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="w3-center">Henryk's Art</h2>
+
+    <div class="w3-content w3-display-container">
+        <img class="mySlides" src="images/artwork/IMG_0057.JPG" style="width:100%">
+        <img class="mySlides" src="images/artwork/IMG_0058.JPG" style="width:100%">
+        <img class="mySlides rotate90" src="images/artwork/IMG_0059.JPG" style="width:100%">
+        <img class="mySlides rotate90" src="images/artwork/IMG_0060.JPG" style="width:100%">
+        <img class="mySlides rotate90" src="images/artwork/IMG_0061.JPG" style="width:100%">
+        <img class="mySlides" src="images/artwork/IMG_0062.JPG" style="width:100%">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+
+    <script>
+
+        var id = 27;
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", "/controllers/increment_clicks_by_id.php?id=" + id, true);
+        xmlhttp.send();
+
+
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

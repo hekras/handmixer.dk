@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Emojis</title>
+    <style>
+        .box7 {
+            height: 32px;
+            width: 32px;
+            box-sizing: border-box;
+            border: 1px solid gray;
+            position: absolute;
+            overflow: hidden;
+            cursor: pointer;
+        }
+    
+        activity {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-right: -50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                line-height: 95%;
+                word-wrap: normal;
+                display: block;
+            }
+    
+    </style>
+    
+    
+</head>
+
+<body>
+    <div id="g1x"></div>
+    <script>
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        // render charset
+        var arr = [
+            [33, 126],
+            [161, 172],
+            [8265, 8265],
+            [8505, 8505],
+            [8598, 8601],
+            [8617, 8618],
+            [9000, 9000],
+            [8986, 8987],
+            [9167, 9167],
+            [9193, 9203],
+            [9208, 9210],
+            [9312, 9331],
+            [9728, 9984],
+            [9986, 10062],
+            [10067, 10071],
+            [10083, 10085],
+            [10102, 10135],
+            [10145, 10145],
+            [10175, 10175],
+            [10548, 10549],
+            [11013, 11015],
+            [11088, 11088],
+            [11093, 11093],
+            [128512, 128592],
+            [57352, 57353],
+            [119808, 119859],
+            [119552, 119638],
+            [119860, 119892],
+            [119894, 119911],
+            [119912, 119937],
+            [119938, 119963],
+            [120146, 120171],
+            [120782, 120831],
+            [127248, 127337],
+            [127344, 127386],
+            [127744, 128722],
+            [128736, 128761],
+            [129296, 129342],
+            [129344, 129349],
+            [129351, 129392],
+            [129395, 129398],
+            [129402, 129402],
+            [129404, 129442],
+            [129456, 129465],
+            [129472, 129474],
+            [129488, 129535]
+        ];
+        var x1 = 3;
+        var x = 3;
+        var y1 = 5;
+        var y = 5;
+        var t = 1;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        console.log("w:" + width + ", h:" + height);
+
+        var dom = document.getElementById('g1x');
+
+        for (var m = 0; m < arr.length; m++) {
+
+            for (var n = arr[m][0]; n < (arr[m][1] + 1); n++) {
+                var el = document.createElement("div");
+                el.className = "box7";
+                el.style.left = x + "px";
+                el.style.top = y + "px";
+                el.style.background = '';
+                el.style.fontSize = '20px';
+                el.style.color = 'black';
+                el.style.visibility = 'inherit';
+                el.setAttribute("va", n);
+                el.innerHTML = '<activity>&#' + n + ';</activity>';
+                //                el.addEventListener('click', klik);
+                dom.appendChild(el);
+                x += 31;
+                if (x+30 > width) {
+                    x = x1;
+                    y += 31;
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

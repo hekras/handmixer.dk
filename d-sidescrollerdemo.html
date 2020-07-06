@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sidescroller</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <div id="thetext">
+        the text-scroller is the foundation of any intro or demo. This is where information about the scene is given and
+        where greetings are sent to friends and credits given to providers. This is a basic scroller that can easily be
+        modified to have features that surprises the reader. Bacon ipsum dolor amet turducken ground round sausage flank
+        jerky, fatback corned beef bresaola pork belly salami meatloaf bacon. Bacon t-bone shankle pork turkey kielbasa.
+        Chicken shoulder ground round pork chop spare ribs chuck, shank ham hock landjaeger burgdoggen ribeye sirloin
+        picanha. Bacon leberkas brisket jerky, beef filet mignon capicola tail t-bone. Landjaeger bresaola turducken
+        burgdoggen, rump chuck buffalo shankle. Porchetta bacon cow pork loin rump turducken t-bone shankle tail pig
+        tongue flank pastrami leberkas. Picanha short ribs doner, sausage kevin hamburger buffalo landjaeger spare ribs
+        jowl. Filet mignon sirloin swine tenderloin pastrami, t-bone burgdoggen. Pork belly frankfurter drumstick
+        burgdoggen t-bone. Ribeye short loin venison, picanha turkey ground round cupim tail buffalo beef. Pork loin
+        prosciutto spare ribs biltong shoulder tongue. Shankle meatball brisket, shoulder ball tip pork shank cupim
+        chicken boudin pig strip steak ground round jowl kielbasa. Pork chop porchetta flank, tail turducken rump jowl
+        andouille. Jerky frankfurter andouille landjaeger prosciutto. Cupim t-bone beef ball tip burgdoggen pork chop.
+        Alcatra burgdoggen pork belly filet mignon. Porchetta jerky filet mignon, tongue cow ribeye turducken meatball
+        flank ball tip hamburger jowl brisket ham. Hamburger bacon jowl kevin pancetta alcatra kielbasa chicken pastrami
+        turkey shankle cupim ham ball tip. Biltong tongue kielbasa venison. Sirloin pig pork, strip steak drumstick
+        salami t-bone sausage fatback hamburger pork belly leberkas shoulder prosciutto pastrami. Kevin landjaeger
+        tongue kielbasa fatback rump flank biltong brisket turkey beef ribs ribeye drumstick ham hock pork. Brisket
+        short loin buffalo, tongue cow fatback shoulder meatball meatloaf cupim burgdoggen pork chop jerky rump
+        kielbasa. Landjaeger shoulder hamburger pork belly porchetta boudin frankfurter pork. Chicken tri-tip buffalo
+        pastrami ground round kielbasa beef ribs pork pork belly strip steak ham hock landjaeger meatloaf. Tri-tip
+        meatloaf ribeye frankfurter t-bone filet mignon. </div>
+    <script>
+        var statemachine = 0;
+        var textpointer = 0;
+        var canvashead = 0;
+        var canvastail = 0;
+        var count = 0;
+        var xpos = 10;
+        var ypos = 500;
+        var tick = 0;
+        var dtick = 1;
+        var content = document.getElementById("thetext").innerText;
+        var sinus = [];
+
+        function animateloop() {
+            dc.fillStyle = "rgba(0,0,0,0.1)";
+            dc.fillRect(0, 0, width, height);
+            //            dc.clearRect(0, 0, width, height);
+
+            switch (statemachine) {
+                case 0: // start the show
+                    text = [];
+                    for (var i = 0; i < 500; i++) {
+                        text[i] = document.createElement("canvas");
+                        text[i].width = 100;
+                        text[i].height = 50;
+                    }
+                    statemachine = 1;
+                    textpointer = 0;
+                    canvaspointer = 0;
+                    xpos = width;
+                    break;
+                case 1: // increase size
+                    text[canvashead].rxpos = xpos;
+                    text[canvashead].rdx = 4;
+                    text[canvashead].rypos = ypos;
+                    var tdc = text[canvashead].getContext("2d");
+                    tdc.clearRect(0, 0, 100, 50);
+                    tdc.fillStyle = "white";
+                    tdc.font = "48px arial";
+                    tdc.fillText(content.charAt(textpointer), 0, 40);
+                    /*                    xpos = xpos + tdc.measureText(content.charAt(textpointer)).width;
+                                        if (xpos > width - 50) {
+                                            xpos = 10;
+                                          //  ypos += 55;
+                                        }*/
+                    //                    console.log("head:" + canvashead + ", char:" + content.charAt(textpointer));
+                    xpos += tdc.measureText(content.charAt(textpointer)).width;
+                    textpointer = textpointer + 1;
+                    if (textpointer > content.length){
+                        textpointer = 0;
+                    }
+                    canvashead = (canvashead + 1) % 500;
+                    statemachine = 2;
+                    break;
+                case 2:
+                    xpos -= 4;
+                    if (xpos < width + 50){
+                        statemachine = 1;
+                    }
+
+                default:
+                //                console.log("statemachine=" + statemachine);
+            }
+            tick += dtick;
+
+            var j = canvastail;
+            while (j != canvashead) {
+                var ang = (tick * 15 + text[j].rxpos) * 2 * Math.PI / 2000;
+                var yp = 200 + 100 * Math.sin(ang);
+                dc.drawImage(text[j], text[j].rxpos, yp);
+
+                text[j].rxpos -= text[j].rdx;
+                if (text[j].rxpos < -50) {
+                    canvastail = (canvastail + 1) % 500;
+                }
+//                text[j].rdx *= 1.005;
+                j = (j + 1) % 500;
+            }
+
+        }
+
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

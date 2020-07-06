@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Invaders</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            border: 0;
+            background-color: black;
+        }
+
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id='obj-canvas' draggable="false" style="cursor: none; " onmousemove="canvas_mousemove(event)"
+        onclick="canvas_click(event)" onmousedown="canvas_mousedown(event)" onmouseup="canvas_mouseup(event)"></canvas>
+    <script src="/js/d-invader-game.js"></script>
+    <div id='help-and-info'
+        style="position: absolute; left: 0px; top: 0px; background-color: rgb(88, 65, 110); color: #bbb; width: 500px; z-index: 10;">
+        Info and help:<br><br>
+        Drawing:<br>
+        1: moveTo cursor position<br>
+        2: lineTo cursor position<br>
+        3: build level (updates collision detection) obsolete!<br>
+        4: debug dump to console<br><br>
+        Moving player:<br>
+        mouse-pointer: move cursor<br>
+        w: activate thrusters<br>
+        arrow-keys: jump in the pressed direction<br><br>
+        Weapons:<br>
+        mouse-click: fire weapon<br>
+        q: cycle next Weapon<br>
+        a: toogle auto-fire<br><br>
+        Tab: close this box
+    </div>
+</body>
+
+</html>

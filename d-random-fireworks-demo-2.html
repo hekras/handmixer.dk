@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Fireworks - random colors</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var statemachine = 0;
+        var tick = 0;
+        const dtick = 0.1;
+        var star = [];
+        var alpha = "rgba(0, 0, 0, 0.1)";
+        var stargroup = [];
+        const stargroups = 20;
+
+        function animateloop() {
+            dc.fillStyle = alpha;
+            dc.fillRect(0, 0, width, height);
+
+            for (var i = 0; i < stargroups; i++) {
+                if (stargroup[i].alive == 0) {
+                    stargroup[i].alive = 25;
+                    var posx = Math.random() * width;
+                    var posy = Math.random() * height;
+                    var col = "rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ")";
+                    for (var n = 0; n < 25; n++) {
+                        var angle = 2 * Math.PI * Math.random();
+                        var velocity = 5 * Math.random();
+                        stargroup[i].star[n] = {
+                            x: posx,
+                            y: posy,
+                            dx: velocity * Math.cos(angle),
+                            dy: velocity * Math.sin(angle),
+                            count: 50 * Math.random(),
+                            color: col,
+                            dead: false,
+                        };
+                    }
+                }
+                else {
+                    stargroup[i].alive = 0;
+                    for (var n = 0; n < 25; n++) {
+                        if (!stargroup[i].star[n].dead) {
+                            stargroup[i].star[n].count--;
+                            stargroup[i].alive++;
+                            if (stargroup[i].star[n].count > 0) {
+                                stargroup[i].star[n].x += stargroup[i].star[n].dx;
+                                stargroup[i].star[n].y += stargroup[i].star[n].dy;
+                                stargroup[i].star[n].dy += 0.01;
+                                stargroup[i].star[n].dx *= 0.999;
+                                dc.fillStyle = stargroup[i].star[n].color;
+                                dc.fillRect(stargroup[i].star[n].x, stargroup[i].star[n].y, stargroup[i].star[n].count / 2, stargroup[i].star[n].count / 2);
+                            }
+                            else {
+                                stargroup[i].star[n].dead = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+
+        dc.fillStyle = "rgb(255, 255, 255)";
+        dc.fillRect(0, 0, width, height);
+        for (var i = 0; i < stargroups; i++) {
+            stargroup[i] = {
+                stars: [],
+                alive: 25 * i,
+            };
+            var posx = Math.random() * width;
+            var posy = Math.random() * height;
+            stargroup[i].star = [];
+            for (var n = 0; n < 25; n++) {
+                var angle = 2 * Math.PI * Math.random();
+                var velocity = 3 * Math.random();
+                stargroup[i].star[n] = {
+                    x: width / 2,
+                    y: height / 2,
+                    dx: velocity * Math.cos(angle),
+                    dy: velocity * Math.sin(angle),
+                    count: 50 * Math.random() * i,
+                    color: "rgba(0,0,0,0.01)",
+                    dead: false,
+                };
+            }
+        }
+
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

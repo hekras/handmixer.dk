@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Polar Sinus</title>
+    <style type="text/css">
+        div {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+
+        canvas {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var statemachine = 0;
+        var points = [];
+        var factor = [];
+        var color = ["white", "blue", "red", "yellow", "pink", "green","purple","orange","gray"];
+        var tick = 0;
+        var dtick = 1;
+        var dtickduration = 100;
+        var tack = 0;
+        var dtack = 1;
+        var dtackduration = 100;
+
+        function animateloop() {
+            dc.clearRect(0, 0, width, height);
+            //            console.log("we");
+            switch (statemachine) {
+                case 0: // start the show
+                    var radius = (width < height) ? width * 0.4 : height * 0.4;
+                    for (var i = 0; i < 255 ; i++) {
+                        var angle = i * 2 * Math.PI / 255;
+                        points[i] = {
+                            x: Math.cos(angle),
+                            y: Math.sin(angle),
+                        };
+                    }
+                    for (var i = 0; i < 9; i++) {
+                        factor[i] = Math.floor(20 * Math.random());
+                        console.log("factor[" + i + "] = " + factor[i]);
+                    }
+
+                    dtickduration = -1;
+                    tick = Math.floor(Math.random() * 64);
+
+                    dtackduration = -1;
+                    tack = Math.floor(Math.random() * 64);
+                    statemachine = 1;
+                    break;
+            }
+
+            tick += dtick;
+            tack += dtack;
+            if (dtickduration-- < 0) {
+                dtick = (Math.random() < 0.5) ? -1 : 1;
+                dtickduration = Math.floor(Math.random() * 300);
+            }
+            if (dtackduration-- < 0) {
+                dtack = (Math.random() < 0.5) ? -1 : 1;
+                dtackduration = Math.floor(Math.random() * 300);
+            }
+            while (tick < 0) {
+                tick += 255;
+            }
+            while (tack < 0) {
+                tack += 255;
+            }
+
+            //            tick %= 64;
+
+            for (var j = 0; j < 9; j++) {
+                dc.strokeStyle = color[j%9];
+                dc.lineWidth = 3;
+                dc.beginPath();
+                var radius = (width < height) ? width / 8 : height / 8;
+                var centerx = (1 + j % 3) * radius * 2;
+                var centery = (1 + Math.floor(j / 3)) * radius * 2;
+                for (var i = 0; i < 255; i++) {
+                    dc.lineTo(centerx + radius * points[(i + tick) % 255].x * points[((j+1) *  i) % 255].y, centery - radius * points[(i + tack) % 255].y * points[(factor[j] * i) % 255].y);
+                }
+                dc.closePath();
+                dc.stroke();
+            }
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>

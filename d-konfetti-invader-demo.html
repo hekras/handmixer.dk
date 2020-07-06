@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Konfetti cute invader</title>
+    <style type="text/css">
+        div {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+
+        canvas {
+            margin: 0;
+            background: rgb(0, 0, 0);
+            border: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        var statemachine = 0;
+        var tock = 0;
+        const dtock = 0.1;
+        var tick = 0;
+        const dtick = 0.1;
+        var star = [];
+
+
+        function animateloop() {
+            dc.clearRect(0, 0, width, height);
+
+            switch (statemachine) {
+                case 0:
+                    star = [];
+                    for (var i = 0; i < 30; i++) {
+                        star[i] = {
+                            x: Math.random() * width,
+                            y: Math.random() * height,
+                            dy: Math.random() * 5,
+                            size: 2.0,
+                            dsize: 1 - 0.01 * Math.random(),
+                            maxscale: 0.1,
+                            targetangle: 0.5,
+                            dangle: Math.random() * 0.03,
+                            mangle: Math.random() * 3.1457,
+                        };
+                    }
+                    statemachine = 1;
+                    break;
+            }
+
+            // do the cute invader image
+            tock += dtock;
+            var angle = tock / 2;
+            var size = tock / 10;
+            invaderdc.clearRect(0, 0, invader.width, invader.height);
+            invaderdc.save();
+            var s = 5;
+            invaderdc.translate(40, 40); // center of window
+            var scale = 1;
+            invaderdc.fillStyle = "RED";
+            invaderdc.fillRect(-4 * s, -6 * s, 8 * s, 2 * s);
+            invaderdc.fillRect(-5 * s, -5 * s, 10 * s, 9 * s);
+            var xx = s * 3 * Math.sin(tock) - 5 * s;
+            invaderdc.fillRect(xx, 2 * s, 4 * s, 5 * s);
+            invaderdc.fillRect(xx + 6 * s, 2 * s, s * 4, s * 5);
+            invaderdc.fillStyle = "WHITE";
+            invaderdc.fillRect(-3 * s, -4 * s, 2 * s, 4 * s);
+            invaderdc.fillRect(1 * s, -4 * s, 2 * s, 4 * s);
+            invaderdc.fillStyle = "BLACK";
+            invaderdc.fillRect(-3 * s, -2 * s, s, 2 * s);
+            invaderdc.fillRect(1 * s, -2 * s, s, 2 * s);
+            invaderdc.restore();
+
+            for (var i = 0; i < star.length; i++) {
+                dc.save();
+                dc.translate(star[i].x, star[i].y);
+                var scale = star[i].size;
+                dc.scale(scale, scale);
+                dc.rotate(star[i].mangle);
+                dc.translate(-invader.width / 2, - invader.height / 2);
+                dc.drawImage(invader, 0, 0);
+                dc.restore();
+                star[i].y += star[i].dy;
+                star[i].mangle += star[i].dangle;
+                star[i].size *= star[i].dsize;
+                if ((star[i].y > height + 80.0) || (star[i].size < 0.05)) {
+                    star[i] = {
+                        x: Math.random() * width,
+                        y: -200,
+                        dy: 1.5 + Math.random() * 8,
+                        size: 2.0,
+                        dsize: 1 - 0.01 * Math.random(),
+                        maxscale: 0.1,
+                        targetangle: 0.5,
+                        dangle: 0.1 * (Math.random() - 0.5),
+                        mangle: Math.random() * 3.1457,
+                    };
+                }
+            }
+
+        }
+
+        /***********************************
+        // main - program starts here !!!!!!
+        ************************************/
+        const canvas = document.querySelector("canvas");
+        const width = canvas.width = window.innerWidth;
+        const height = canvas.height = window.innerHeight;
+        const dc = canvas.getContext("2d");
+        var invader = document.createElement('canvas');
+        invader.width = 80;
+        invader.height = 90;
+        const invaderdc = invader.getContext("2d");
+        window.setInterval(animateloop, 1000 / 60);
+
+    </script>
+</body>
+
+</html>
